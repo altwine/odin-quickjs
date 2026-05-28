@@ -910,3 +910,4 @@ foreign lib {
 	/* Integration point for quickjs-libc.c, not for public use. */
 	js_std_cmd :: proc(cmd: i32, #c_vararg _: ..any) -> c.uintptr_t ---
 }
+

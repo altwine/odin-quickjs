@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
+cd "$(dirname "$0")"
 
 # clean
+rm -rf ./odin-quickjs
 rm -rf ./quickjs-amalgam
-rm -rf ./linux
 rm -f ./bindgen.bin
-rm -f ./quickjs.odin
 
 # generate bindgen executable
 odin build ./bindgen/src -out:./bindgen.bin
@@ -36,6 +36,11 @@ cp -f ./quickjs-amalgam/output/quickjs.odin ./quickjs.odin
 
 # fix bindings
 sed -i 's/fp: \^FILE/fp: rawptr/g' ./quickjs.odin
+
+# put them to odin-quickjs dir
+mkdir ./odin-quickjs
+mv -f ./linux ./odin-quickjs/linux
+mv -f ./quickjs.odin ./odin-quickjs/quickjs.odin
 
 # remove leftovers
 rm -rf ./quickjs-amalgam

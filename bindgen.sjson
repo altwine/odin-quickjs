@@ -3,13 +3,13 @@ inputs = ["./quickjs.h"]
 output_folder = "output"
 
 // Remove this prefix from types names (structs, enums, etc)
-remove_type_prefix = ""
+remove_type_prefix = "JS_"
 
 // Remove this prefix from macro names
-remove_macro_prefix = ""
+remove_macro_prefix = "JS_"
 
 // Remove this prefix from function names (and add it as link_prefix) to the foreign group
-remove_function_prefix = ""
+remove_function_prefix = "JS_"
 
 // Remove this suffix from type names (such as '_t' etc)
 remove_type_suffix = ""

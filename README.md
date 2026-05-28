@@ -8,7 +8,7 @@ quickjs-ng bindings for odin
 `./gen.sh` - gen bindings
 `./odin run .` - run example
 
-you can just clone this repo as is, submodules not required for bindings to work, only for generation:
-`git clone git://github.com/altwine/odin-quickjs.git`
-or with submodules
-`git clone --recurse-submodules -j8 git://github.com/altwine/odin-quickjs.git`
+you can just download & unpack working bindings + latest compiled libraries [**here**](https://github.com/altwine/odin-quickjs/releases/latest);
+example of usage is in [`example.odin`](./example.odin)
+
+clone this repo: `git clone --recurse-submodules -j8 git://github.com/altwine/odin-quickjs.git`

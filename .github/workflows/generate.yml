@@ -1,0 +1,53 @@
+name: Generate bindings
+
+permissions:
+    contents: write
+
+on:
+    push:
+        tags:
+            - "v*"
+
+jobs:
+    generate-bindings:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo and submodules
+              uses: actions/checkout@v6
+              with:
+                  submodules: recursive
+
+            - name: Install system dependencies
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y build-essential unzip
+
+            - name: Setup Odin
+              uses: laytan/setup-odin@v2.12.2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  llvm-version: 18
+                  build-type: release
+
+            - name: Check Odin version
+              run: odin version
+
+            - name: Generate bindings
+              run: |
+                  chmod +x ./gen.sh
+                  ./gen.sh
+
+            - name: Compress folder
+              run: |
+                  tar -czvf ./odin-quickjs.tar.gz ./odin-quickjs
+
+            - name: Release odin-quickjs
+              uses: softprops/action-gh-release@v3
+              with:
+                  tag_name: ${{ github.ref_name }}
+                  name: odin-quickjs ${{ github.ref_name }}
+                  files: |
+                      ./odin-quickjs.tar.gz
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

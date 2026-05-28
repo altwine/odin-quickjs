@@ -32,7 +32,9 @@ jobs:
 
             - name: Add symlink to libclang.so
               run: |
-                  sudo ln -s /usr/lib/llvm-18/lib/libclang.so /usr/lib/x86_64-linux-gnu/libclang.so
+                  sudo apt-get install -y libclang-dev
+                  find /usr/lib -name 'libclang*.so*' 2>/dev/null
+                  sudo ln -s /usr/lib/x86_64-linux-gnu/libclang-21.so /usr/lib/x86_64-linux-gnu/libclang.so
 
             - name: Check Odin version
               run: odin version

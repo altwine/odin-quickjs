@@ -3,9 +3,7 @@ quickjs-ng bindings for odin
 
 **!!! not ready for prod !!!**
 
-**!!! works on linux only !!!**
-
-`./gen.sh` - gen bindings
+`./gen.sh` on linux, then `./gen.bat` on windows.
 `./odin run .` - run example
 
 you can just download & unpack working bindings + latest compiled libraries [**here**](https://github.com/altwine/odin-quickjs/releases/latest);

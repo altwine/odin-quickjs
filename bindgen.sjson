@@ -17,13 +17,10 @@ remove_type_suffix = ""
 // Set to true translate type names to Ada_Case
 force_ada_case_types = false
 
-// Single lib file to import. Will be ignored if `imports_file` is set.
-import_lib = "./linux/libquickjs.a"
-
 // The filename of a file that contains the foreign import declarations. In it you can do
 // platform-specific library imports etc. The contents of it will  be placed near the top of the
 // file.
-imports_file = ""
+imports_file = "../imports.txt"
 
 package_name = "odin_quickjs"
 

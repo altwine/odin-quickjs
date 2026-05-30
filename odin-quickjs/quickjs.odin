@@ -28,8 +28,14 @@ package odin_quickjs
 
 import "core:c"
 
-foreign import lib "./linux/libquickjs.a"
-_ :: lib
+when ODIN_OS == .Windows {
+	foreign import lib "./windows/libquickjs.lib"
+} else when ODIN_OS == .Linux {
+	foreign import lib "./linux/libquickjs.a"
+} else {
+	#panic("'"+ODIN_OS_STRING+"' is unsupported!")
+}
+
 
 QUICKJS_NG            :: 1
 QUICKJS_NG_CC_GNULIKE :: 1

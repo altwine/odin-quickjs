@@ -8,7 +8,7 @@ rm -rf ./quickjs-amalgam
 rm -f ./bindgen.bin
 
 # generate bindgen executable
-odin build ./bindgen/src -out:./bindgen.bin -extra-linker-flags:"-L/usr/lib/x86_64-linux-gnu -lclang"
+odin build ./bindgen/src -out:./bindgen.bin
 
 # generate quickjs-amalgam
 mkdir ./quickjs-amalgam
@@ -18,7 +18,7 @@ make amalgam
 unzip -o ./build/quickjs-amalgam.zip -d ../quickjs-amalgam
 cd ..
 
-# build libraries
+# build .a for linux
 rm -rf ./linux
 mkdir ./linux
 ar -M <<EOF
@@ -43,5 +43,4 @@ mv -f ./linux ./odin-quickjs/linux
 mv -f ./quickjs.odin ./odin-quickjs/quickjs.odin
 
 # remove leftovers
-rm -rf ./quickjs-amalgam
 rm -f ./bindgen.bin

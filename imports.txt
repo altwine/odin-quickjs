@@ -1,0 +1,7 @@
+when ODIN_OS == .Windows {
+	foreign import lib "./windows/libquickjs.lib"
+} else when ODIN_OS == .Linux {
+	foreign import lib "./linux/libquickjs.a"
+} else {
+	#panic("'"+ODIN_OS_STRING+"' is unsupported!")
+}

@@ -26,7 +26,7 @@ main :: proc() {
 	}
 	defer qjs.FreeContext(js_ctx)
 
-	get_message_cfunc := qjs.NewCFunction2(js_ctx, send_message, "sendMessage", 0, qjs.JSCFunctionEnum.generic, 0)
+	get_message_cfunc := qjs.NewCFunction2(js_ctx, send_message, "sendMessage", 1, qjs.JSCFunctionEnum.generic, 0)
 	defer qjs.FreeValue(js_ctx, get_message_cfunc)
 
 	global := qjs.GetGlobalObject(js_ctx)

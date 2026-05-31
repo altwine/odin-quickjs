@@ -37,9 +37,6 @@ when ODIN_OS == .Windows {
 }
 
 
-QUICKJS_NG            :: 1
-QUICKJS_NG_CC_GNULIKE :: 1
-
 JSRuntime :: struct {}
 JSContext :: struct {}
 JSObject  :: struct {}

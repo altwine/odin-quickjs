@@ -1,3 +1,8 @@
+@echo off
+
+:: select currect dir
+cd /d "%~dp0"
+
 :: clean
 rmdir /s /q ".\windows"
 
